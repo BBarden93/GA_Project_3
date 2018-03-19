@@ -11,8 +11,9 @@ const passportConfig = require('./config/passport.js')
 const userRoutes = require('./routes/users.js')
 const flash = require('connect-flash')												//Allows us to run a method called req.flash. One time, if refreshed- it goes away
 const cookieParser = require('cookie-parser')
-const MongoDBStore = require('connect-mongodb-session')(session)
 const session = require('express-session')
+const MongoDBStore = require('connect-mongodb-session')(session)
+const usersRouter = require('./routes/users.js')
 const PORT = 3000
 
 //MONGOOSE CONNECT
@@ -22,7 +23,7 @@ mongoose.connect ("mongodb://localhost/vacation-finder", (err) => {
 
 //STORING SESSIONS INFO
 const store = new MongoDBStore({
-	uri: mongoConnectionString,
+	uri: "mongodb://localhost/vacation-finder",						//NOT SURE WHAT THIS DOES YET
 	collection: 'sessions'
 })
 
@@ -49,11 +50,16 @@ app.use(passport.initialize())													    // passport will load all configu
 app.use(passport.session())													    	// use passport with the options in line 31 when people sign up
 
 app.use((req, res, next) => {
-	app.locals.currentUser = req.user 				// currentUser now available in ALL views
-	app.locals.loggedIn = !!req.user 				// a boolean loggedIn now available in ALL views
-
+	app.locals.currentUser = req.user 												// currentUser now available in ALL views
+	app.locals.loggedIn = !!req.user 												// a boolean loggedIn now available in ALL views
 	next()
 })
+
+app.get("/", (req, res) => {
+    res.render("home")
+})
+
+// app.use('/users', usersRouter)
 
 app.listen(PORT, (err) => {
 	console.log(err || `Server running on ${PORT}`)
