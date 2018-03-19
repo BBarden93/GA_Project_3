@@ -55,6 +55,10 @@ app.use((req, res, next) => {
 	next()
 })
 
+app.get("/", (req, res) => {
+    res.render("home")
+})
+
 // app.use('/users', usersRouter)
 
 app.listen(PORT, (err) => {
