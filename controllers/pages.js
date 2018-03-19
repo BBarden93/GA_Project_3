@@ -1,8 +1,7 @@
-const User = require("../models/User")
+const User = require("../models/User.js")
 
 module.exports = {                                                                                  // The only place we use model is in controller
     // index: (req, res) => {
-       
     // },
     show: (req, res) => {
         User.findById(req.params.id, (err, thatUser) => {

@@ -1,6 +1,10 @@
 const express = require("express")
-const usersRouter = express.Router()
+const usersRouter = new express.Router()
 const passport = require("passport")
+
+usersRouter.get("/", (req, res) => {
+    res.render("home")
+})
 
 usersRouter.get("/login", (req, res) => {
     res.render("login", {message:req.flash("loginMessage")})
@@ -34,7 +38,7 @@ function isLoggedIn(req, res, next) {
     res.redirect("users/login")                                                                                         // New session path
   }
   
-usersRouter.patch("/users/:id",  )
+usersRouter.patch("/users/:id" )
 
 //usersRouter.delete()
 

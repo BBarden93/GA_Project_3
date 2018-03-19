@@ -4,5 +4,5 @@ const imageSchema = new mongoose.Schema({
     location: String
 })
 
-const Image = mongoose.Model('Images', imageSchema)
+const Image = mongoose.model('Images', imageSchema)
 module.exports = Image
