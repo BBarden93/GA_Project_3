@@ -8,8 +8,8 @@ usersRouter.get("/login", (req, res) => {
 })
 
 usersRouter.post("/login", (passport.authenticate("local-login", {          
-    successRedirect: "/profile",
-    failureRedirect: "/login"
+    successRedirect: "/users/profile",
+    failureRedirect: "/users/login"
 })))
 
 usersRouter.get("/signup", (req, res) => {
@@ -17,8 +17,8 @@ usersRouter.get("/signup", (req, res) => {
 })
 
 usersRouter.post("/signup", (passport.authenticate("local-signup", {          
-    successRedirect: "/profile",
-    failureRedirect: "/signup"
+    successRedirect: "/users/profile",
+    failureRedirect: "/users/signup"
 })))
 
 usersRouter.get("/profile",isLoggedIn, (req, res) => {                                                                  // If somebody makes a getmethod on /profile, run the isLoggedIn function first 
@@ -35,7 +35,7 @@ function isLoggedIn(req, res, next) {
     res.redirect("/login")                                                                                         // New session path
 }
   
-usersRouter.patch("/users/:id" )
+// usersRouter.patch("/users/:id" )
 
 //usersRouter.delete()
 
