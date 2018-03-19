@@ -26,7 +26,7 @@
 }
 .main-menu:hover,nav.main-menu.expanded {
     width:160px;
-/* // overflow:visible; */
+
 }
 
 .main-menu {
@@ -39,9 +39,9 @@
     left:0;
     width:60px;
     overflow:hidden;
-    /* // -webkit-transition:width .05s linear; */
+   
     transition:width .05s linear;
-    /* // -webkit-transform:translateZ(0) scale(1,1); */
+   
     transform: translateZ(0) scale(1,1);
     z-index:1000;
 }
@@ -128,7 +128,7 @@ nav ul,nav li {
     font-family: 'Titillium Web';
     font-style: normal;
     font-weight: 300;
-    src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+    src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http:themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
 }
 
 body {
@@ -165,8 +165,6 @@ body {
 
 .col-md-6.offset-md-3 {
     margin-top: 200px;
-    background-color: #222629;
-    opacity: .75;
 }
 
 .title {
