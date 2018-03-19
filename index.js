@@ -7,6 +7,8 @@ const logger = require("morgan")
 const dotenv = require("dotenv")
 const bodyParser = require("body-parser")
 const passport  = require("passport")
+const passportConfig = require('./config/passport.js')
+const userRoutes = require('./routes/users.js')
 const flash = require('connect-flash')												//Allows us to run a method called req.flash. One time, if refreshed- it goes away
 const cookieParser = require('cookie-parser')
 const MongoDBStore = require('connect-mongodb-session')(session)
@@ -20,12 +22,14 @@ mongoose.connect ("mongodb://localhost/vacation-finder", (err) => {
 
 //STORING SESSIONS INFO
 const store = new MongoDBStore({
-   //don't understand the syntax, so leaving it out for now.
+	uri: mongoConnectionString,
+	collection: 'sessions'
 })
 
 //MIDDLEWARE
 app.use(logger("dev"))
 app.use(cookieParser())
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(flash())
 
@@ -42,7 +46,14 @@ app.use(session({																    //Session is a function that contains optio
 
 //PASSPORT SESSION/INITIALIZATION
 app.use(passport.initialize())													    // passport will load all configurations thats setup and use them
-app.use(passport.session())														    // use passport with the options in line 31 when people sign up
+app.use(passport.session())													    	// use passport with the options in line 31 when people sign up
+
+app.use((req, res, next) => {
+	app.locals.currentUser = req.user 				// currentUser now available in ALL views
+	app.locals.loggedIn = !!req.user 				// a boolean loggedIn now available in ALL views
+
+	next()
+})
 
 app.listen(PORT, (err) => {
 	console.log(err || `Server running on ${PORT}`)
