@@ -2,7 +2,6 @@ const express = require("express")
 const usersRouter = new express.Router()
 const passport = require("passport")
 
-
 usersRouter.get("/login", (req, res) => {
     res.render("login", {message:req.flash("loginMessage")})
 })
