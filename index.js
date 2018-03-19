@@ -59,7 +59,7 @@ app.get("/", (req, res) => {
     res.render("home")
 })
 
-// app.use('/users', usersRouter)
+app.use('/users', usersRouter)
 
 app.listen(PORT, (err) => {
 	console.log(err || `Server running on ${PORT}`)
