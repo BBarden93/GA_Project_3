@@ -12,7 +12,7 @@ usersRouter.post("/login", (passport.authenticate("local-login", {
   })))
 
 usersRouter.get("/signup", (req, res) => {
-    res.render(signup, {message:req.flash("message")})
+    res.render(signup, {message:req.flash("signupMessage")})
 })
 
 usersRouter.post("/signup", (passport.authenticate("local-signup", {          
@@ -34,7 +34,7 @@ function isLoggedIn(req, res, next) {
     res.redirect("users/login")                                                                                         // New session path
   }
   
-//usersRouter.patch()
+usersRouter.patch("/users/:id",  )
 
 //usersRouter.delete()
 
