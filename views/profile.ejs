@@ -1,0 +1,23 @@
+<!-- flsh welcome back message -->
+<!-- <% if(message.length > 0) { %>
+    <div class="alert alert-danger"><%= message %></div>
+<% } %> -->
+<div class="page-header">
+
+    <a href="/users/logout" class="btn btn-default btn-sm">Logout</a>
+
+</div>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="well">
+
+            <h3>User</h3>
+
+            <p>
+                <strong>email</strong>: <%= user.email %><br>
+                <strong>password</strong>: <%= user.password %>
+            </p>
+                
+        </div>
+    </div>
+</div>
