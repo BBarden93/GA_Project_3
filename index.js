@@ -9,8 +9,8 @@ const bodyParser = require("body-parser")
 const passport  = require("passport")
 const flash = require('connect-flash')												//Allows us to run a method called req.flash. One time, if refreshed- it goes away
 const cookieParser = require('cookie-parser')
-const MongoDBStore = require('connect-mongodb-session')(session)
 const session = require('express-session')
+const MongoDBStore = require('connect-mongodb-session')(session)
 const PORT = 3000
 
 //MONGOOSE CONNECT
