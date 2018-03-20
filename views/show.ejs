@@ -7,3 +7,8 @@
   </div>
   <h2><%= image.location %></h2>
 
+  <a href="/images/<%= image.id%>/edit">Edit</a>
+  <form action="/images/<%= image.id%>/delete?_method=DELETE" method="POST">
+    <button>Delete</button>
+  </form>
+
