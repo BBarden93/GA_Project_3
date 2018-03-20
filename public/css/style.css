@@ -10,9 +10,6 @@
     padding-left: 10px;
 }
 
-#flask {
-    color: gray;
-}
 .main-menu:hover,nav.main-menu.expanded {
     width:160px;
 }
@@ -71,7 +68,7 @@
     display:table-cell;
     vertical-align:middle;
     width:190px;
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     padding-left: 25px;   
 }
 
@@ -103,167 +100,14 @@ nav ul,nav li {
     margin:0;
     padding:0;
 }
-.main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
-    color:#e2e2e2;
-    background-color:#5fa2db;    
-}
-
-.area {
-    float: left;
-    background: #e2e2e2;
-    width: 100%;
-    height: 100%;
-}
-@font-face {
-    font-family: 'Titillium Web';
-    font-style: normal;
-    font-weight: 300;
-    src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
-}
 
 body {
-   
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-color: #222629;
-    font-family: 'Titillium Web';
-    color: #14A76C;
+    background-color: rgba(16, 13, 13, 0.872);
 }
-
-.btn.btn-success {
-    background-color: #222629;
-    color: #14A76C;
-    border-color: #14A76C;   
+.home-container {
+    color: gainsboro;
 }
-
-.btn.btn-primary{
-    background-color: #222629;
-    color: #14A76C;
-    border-color: #14A76C;   
-}
-
-.btn.btn-tiny {
-    background-color: #222629;
-    color: #14A76C;
-    border-color: #14A76C;
-    width: 245px;
-}
-
-.btn-s {
-    float: right;
-}
-
-.col-md-6.offset-md-3 {
-    margin-top: 200px;
-}
-
-.title {
-    text-align: left;
-    margin-top: 20px;
-    margin-left: 80px;
-    color: #14A76C;
-    width: 350px;
-}
-
-#title {
-    text-align: left;
-    font-weight:bolder;
-    margin-left: 80px;  
-    padding-top: 180px;
-    width: 600px;
-    letter-spacing: 8px;
-    font-size: 60px;
-}
-
-.description {
-    text-align: justify;
-    margin-top: 20px;
-    margin-left: -85px;
-    line-height: 2;
-    width: 1300px;
-    padding-left: 170px; 
-}
-
-.card {
-    margin-left: 75px;
-    margin-top: 30px;
-    display: inline-block;
-    height: auto;
-    vertical-align: top;
-    overflow: scroll;
-}
-
-.user {
-    list-style: none;
-    line-height: 40px;
-    margin-left: 50px;
-}
-
-#add-recipe{
-    margin-left: 75px;
-    margin-top: 30px;
-}
-
-#recipe-new{
-    margin-top: 100px;
-    margin-left: 50px;
-    line-height: 30px;
-}
-.img-box {
-    height: 246px;
-    border: 1px solid black;
-    vertical-align: middle;
-}
-
-.profile{
-    display: block;
-    margin-left: 50px;
-    margin-top: 10px;
-}
-
-/* // .card-img-top {
-//     vertical-align: middle;   
-// } */
-
-.all-users {
-    list-style: none;
-    padding: 20px 0 0 100px;
-    line-height: 50px;
-}
-
-.recipe-path { 
-    display: block;
-    overflow: hidden;
-    float: right;
-}
-
-.wrapper {
-    overflow: hidden;
-    width: 175px; 
-}
-  
-.name{
-    float: right;
-    width: 50px;
-}
-
-.alert {
-    padding-left: 100px; 
-}
-
-.container {
-    clear: both;
-}
-
-.search-form{
-   float: right;
-   margin-right: 20px;
-}
-
-.username{
-    float: left;
-    padding-right: 10px;
-    color: #222629;
+.layout-container {
+    text-align: center;
 }
 
