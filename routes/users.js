@@ -2,7 +2,6 @@ const express = require("express")
 const usersRouter = new express.Router()
 const passport = require("passport")
 
-
 usersRouter.get("/login", (req, res) => {
     res.render("login", {message:req.flash("loginMessage")})
 })
@@ -32,7 +31,7 @@ usersRouter.get("/logout", (req, res) => {
 
 function isLoggedIn(req, res, next) {
     if(req.isAuthenticated()) return next()                                                                             //By implementing passport middleware we're manipulating requests 
-    res.redirect("/login")                                                                                         // New session path
+    res.redirect("/login")                                                                                              // New session path
 }
   
 // usersRouter.patch("/users/:id" )

@@ -12,12 +12,14 @@ module.exports = {                                                              
     new: (req, res) => {
             res.render("users/new")
     }, 
+    
     create: (req, res) => {
         User.create(req.body, (err, newUser) =>{
             if(err) return console.log(err)
             res.render("users/profile", {user: newUser})
         })
     }, 
+
     edit: (req, res) => {
         User.findById(req.params.id, (err, thatUser) =>{  
             if(err) return console.log(err)
