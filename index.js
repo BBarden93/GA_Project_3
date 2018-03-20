@@ -15,6 +15,7 @@ const session = require('express-session')
 const MongoDBStore = require('connect-mongodb-session')(session)
 const usersRouter = require('./routes/users.js')
 const imagesRouter = require('./routes/images.js')
+const Image = require('./models/Image.js')
 
 const PORT = 3000
 
@@ -59,7 +60,9 @@ app.use((req, res, next) => {
 })
 
 app.get("/", (req, res) => {
-    res.render("home")
+	Image.find({}, (err, allImages) => {
+		res.render("home", {images: allImages})
+	})
 })
 
 app.use('/users', usersRouter)
