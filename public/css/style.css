@@ -1,3 +1,24 @@
+body {
+    background-color: rgba(16, 13, 13, 0.872);
+}
+.page-container {
+    padding-left: 100px;
+    margin: 0 auto;
+}
+.home-container {
+    color: gainsboro;
+}
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+.container {
+    text-align: center;
+    margin: 0 auto;
+}
+h1 {
+    color: gainsboro;
+}
 .fa {
     position: relative;
     display: table-cell;
@@ -101,13 +122,10 @@ nav ul,nav li {
     padding:0;
 }
 
-body {
-    background-color: rgba(16, 13, 13, 0.872);
-}
-.home-container {
-    color: gainsboro;
-}
-.layout-container {
-    text-align: center;
-}
+
+
+
+
+
+
 
