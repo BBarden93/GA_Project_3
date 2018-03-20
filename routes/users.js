@@ -31,7 +31,7 @@ usersRouter.get("/logout", (req, res) => {
 
 function isLoggedIn(req, res, next) {
     if(req.isAuthenticated()) return next()                                                                             //By implementing passport middleware we're manipulating requests 
-    res.redirect("/login")                                                                                         // New session path
+    res.redirect("/login")                                                                                              // New session path
 }
   
 // usersRouter.patch("/users/:id" )
