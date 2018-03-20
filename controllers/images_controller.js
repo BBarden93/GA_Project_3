@@ -1,4 +1,4 @@
-const Image = require("../models/image.js")
+const Image = require("../models/Image.js")
 
 module.exports = {                                                                                  // The only place we use model is in controller
     index: (req, res) => {
