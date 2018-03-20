@@ -3,7 +3,7 @@ const Image = require("../models/Image.js")
 module.exports = {                                                                                  // The only place we use model is in controller
     index: (req, res) => {
         Image.find({}, (req, res) =>{
-            if(err) return console.log(err)
+            // if(err) return console.log(err)
             res.render("/", {image: thatimage})            
         })
     },
@@ -14,6 +14,7 @@ module.exports = {                                                              
         })                          
     },
     new: (req, res) => {
+        console.log("Getting here")
             res.render("newImage")
     }, 
     
