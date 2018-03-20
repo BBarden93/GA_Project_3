@@ -1,5 +1,5 @@
 <% images.forEach((e) => { %>
-    <div><a href="<% e.url %>"></a></div>
+    <div><a href='/images/<%= e.id %>'><img src="<%= e.url %>" /></a></div>
 <%})%>
 
 <!-- /views/index.ejs -->
