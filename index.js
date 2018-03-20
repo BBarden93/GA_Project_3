@@ -14,6 +14,8 @@ const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const MongoDBStore = require('connect-mongodb-session')(session)
 const usersRouter = require('./routes/users.js')
+const imagesRouter = require('./routes/images.js')
+
 const PORT = 3000
 
 //MONGOOSE CONNECT
