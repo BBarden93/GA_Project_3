@@ -18,6 +18,7 @@ module.exports = {                                                              
     }, 
     
     create: (req, res) => {
+        console.log("In Create")
         Image.create(req.body, (err, newimage) =>{
             if(err) return console.log(err)
             res.render("show", {image: newimage})
