@@ -23,7 +23,7 @@ mongoose.connect ("mongodb://localhost/vacation-finder", (err) => {
 
 //STORING SESSIONS INFO
 const store = new MongoDBStore({
-	uri: "mongodb://localhost/vacation-finder",						//NOT SURE WHAT THIS DOES YET
+	uri: "mongodb://localhost/vacation-finder",										//NOT SURE WHAT THIS DOES YET
 	collection: 'sessions'
 })
 
