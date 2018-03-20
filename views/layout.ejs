@@ -26,7 +26,7 @@
                 <span class="nav-text">HOME</span>
                 </a>            
             </li> 
-          
+          <% if(loggedIn) { %>
             <li class="logout">
                 <a href="/users/logout">                    
                 <i class="fa fa-power-off fa-2x"></i>
@@ -39,7 +39,7 @@
                 <span class="nav-text">MY PROFILE</span>
                 </a>       
             </li>
-             
+          <% } else { %>
             <li class="has-subnav">
                 <a href="/users/signup">
                 <i class="fa fa-list fa-2x"></i>
@@ -52,6 +52,7 @@
                 <span class="nav-text">LOG IN</span>
                 </a>       
             </li>
+            <% } %>
           </ul>  
       </nav>
 
