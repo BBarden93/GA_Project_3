@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 const axios = require("axios")
 const ejsLayouts = require("express-ejs-layouts")
 const logger = require("morgan")
-const dotenv = require("dotenv")
+// const dotenv = require("dotenv")
 const bodyParser = require("body-parser")
 const passport  = require("passport")
 const passportConfig = require('./config/passport.js')
@@ -16,9 +16,11 @@ const MongoDBStore = require('connect-mongodb-session')(session)
 const usersRouter = require('./routes/users.js')
 const imagesRouter = require('./routes/images.js')
 const Image = require('./models/Image.js')
+const httpClient = axios.create()
 const methodOverride = require('method-override')
-
 const PORT = 3000
+require('dotenv').config()
+const apiKey = process.env.API_KEY
 
 //MONGOOSE CONNECT
 mongoose.connect ("mongodb://localhost/vacation-finder", (err) => {
@@ -68,10 +70,22 @@ app.get("/", (req, res) => {
 	})
 })
 
+// app.get("/weather/:id", (req, res) => {
+// 	Image.findById(req.params.id, (err, thatImage) => {
+// 		const location = thatImage.location.replace(/\s/g,"")
+// 		const apiUrl = `api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=imperial`
+// 		console.log(apiUrl)
+// 		const options = {method: 'get', url: apiUrl}
+// 		httpClient(options).then((apiResponse) => {
+// 			res.json(apiResponse.data)
+// 		})
+// 	})
+// })
+
 app.use('/users', usersRouter)
 app.use('/images', imagesRouter)
 
 
 app.listen(PORT, (err) => {
-	console.log(err || `Server running on ${PORT}`)
+	console.log(err || `Listening on ${PORT}`)
 })
