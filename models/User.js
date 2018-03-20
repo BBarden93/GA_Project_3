@@ -2,7 +2,8 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt-nodejs')
 const userSchema = new mongoose.Schema({
     email: String,
-    password: String
+    password: String,
+    name: String
 })
 
 //generate secure password
