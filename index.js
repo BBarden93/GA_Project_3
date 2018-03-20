@@ -16,6 +16,7 @@ const MongoDBStore = require('connect-mongodb-session')(session)
 const usersRouter = require('./routes/users.js')
 const imagesRouter = require('./routes/images.js')
 const Image = require('./models/Image.js')
+const methodOverride = require('method-override')
 
 const PORT = 3000
 
@@ -37,6 +38,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(flash())
 app.use(express.static(`${__dirname}/public`))
+app.use(methodOverride('_method'))
 
 // EJS CONFIGURATION
 app.set('view engine', 'ejs')
@@ -61,6 +63,7 @@ app.use((req, res, next) => {
 
 app.get("/", (req, res) => {
 	Image.find({}, (err, allImages) => {
+		console.log(allImages)
 		res.render("home", {images: allImages})
 	})
 })
