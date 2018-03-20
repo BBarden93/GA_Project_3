@@ -1,4 +1,8 @@
 const Image = require("../models/Image.js")
+const axios = require("axios")
+const httpClient = axios.create()
+require('dotenv').config()
+const apiKey = process.env.API_KEY
 
 module.exports = {                                                                                  // The only place we use model is in controller
     index: (req, res) => {
@@ -11,8 +15,24 @@ module.exports = {                                                              
         Image.findById(req.params.id, (err, thatImage) => {
             if(err) return console.log(err)
             res.render("show", {image: thatImage})
-        })                          
+        })
+        Image.findById(req.params.id,(err, thatImage) => {
+            const location = thatImage.location.replace(/\s/g,"")
+            const apiUrl = `api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=imperial`
+            const options = {method: "get", url: apiUrl}
+            httpClient(options).then((apiResponse) => {
+                res.json(apiResponse)
+            })  
+        })      
+            // .then((thatImage) => {
+            //     const location = thatImage.location.replace(/\s/g,"")
+            //     url = `api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=imperial`
+            //     const options = {method: "get", url: apiUrl}
+            // })
+
+            // console.log(url)                
     },
+    
     new: (req, res) => {
         console.log("Getting here")
             res.render("newImage")
