@@ -14,6 +14,7 @@ module.exports = {                                                              
         })                          
     },
     new: (req, res) => {
+        console.log("Getting here")
             res.render("newImage")
     }, 
     
