@@ -60,6 +60,8 @@ app.get("/", (req, res) => {
 })
 
 app.use('/users', usersRouter)
+app.use('/images', imagesRouter)
+
 
 app.listen(PORT, (err) => {
 	console.log(err || `Server running on ${PORT}`)
