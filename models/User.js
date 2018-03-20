@@ -3,7 +3,8 @@ const bcrypt = require('bcrypt-nodejs')
 const userSchema = new mongoose.Schema({
     email: String,
     password: String,
-    name: String
+    name: String,
+    images: []
 })
 
 //generate secure password
@@ -17,3 +18,4 @@ userSchema.methods.validPassword = function(password) {
 
 const User = mongoose.model("User", userSchema)
 module.exports = User
+
