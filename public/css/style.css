@@ -1,3 +1,4 @@
+/* General Layout CSS */
 body {
     background-color: rgba(16, 13, 13, 0.872);
 }
@@ -5,23 +6,53 @@ body {
     padding-left: 100px;
     width: 100%;
 }
-.home-container {
+h1, h3, label, .well {
     color: gainsboro;
 }
+/* END General Layout CSS */
+/* Form CSS */
 .form-container {
-    max-width: 400px;
+    max-width: 480px;
     margin: 0 auto;
+    padding: 30px;
+}
+form {
+    padding: 20px;
+}
+.btn {
+    padding: 6px 9px;
+    margin: 18px;
+}
+/* END Form CSS */
+.home-container {
+    color: gainsboro;
 }
 .container {
     text-align: center;
     margin: 0 auto;
+    max-width: 700;
 }
-h1, h3, label, .well {
-    color: gainsboro;
-}
+/* Profile CSS */
 .well {
     text-align: center;
     margin: 0 auto;
+}
+.profile-pic {
+    float: right;
+    clear: both;
+}
+/* END Profile CSS */
+/* Navigation Bar CSS */
+nav {
+    user-select:none;
+}
+.nav-text {
+    color: white;
+}
+nav ul,nav li {
+    outline:0;
+    margin:0;
+    padding:0;
 }
 .fa {
     position: relative;
@@ -30,18 +61,18 @@ h1, h3, label, .well {
     height: 36px;
     text-align: right;
     vertical-align: middle;
-    font-size:20px;
-    color: gainsboro;
+    font-size:24px;
+    color: white;
     padding-left: 10px;
 }
 
 .main-menu:hover,nav.main-menu.expanded {
-    width:160px;
+    width:180px;
 }
 
 .main-menu {
     opacity: .75;
-    background:#212121;
+    background:#4dced0;
     position:absolute;
     top:0;
     bottom:0;
@@ -115,22 +146,4 @@ h1, h3, label, .well {
 a:hover,a:focus {
     text-decoration:none;
 }
-
-nav {
-    user-select:none;
-}
-
-nav ul,nav li {
-    outline:0;
-    margin:0;
-    padding:0;
-}
-
-
-
-
-
-
-
-
-
+/* END Navigation Bar CSS */
