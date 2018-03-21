@@ -8,11 +8,12 @@
   <h2><%= image.location %></h2>
   <div id = "weather-info">
     <img id = "weather-icon"/>
-    <p id = "city-temperature"></p>
-    <p id = "city-humidity"></p>
+    <p id = "city-temperature">Current Temperature: <%= data.main.temp %> F</p>
+    <p id = "city-humidity">Humidity: <%= data.main.humidity %> %</p>
   </div>
   <a href="/images/<%= image.id%>/edit">Edit</a>
   <form action="/images/<%= image.id%>/delete?_method=DELETE" method="POST">
     <button>Delete</button>
   </form>
+
 

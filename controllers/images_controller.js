@@ -1,8 +1,15 @@
+const jsdom = require("jsdom")
+const { JSDOM } = jsdom
+const { window } = new JSDOM(`<!DOCTYPE html>`)
+const $ = require('jQuery')(window);
 const Image = require("../models/Image.js")
 const axios = require("axios")
 const httpClient = axios.create()
 require('dotenv').config()
 const apiKey = process.env.API_KEY
+var $cityTemperature = $("#city-temperature")
+var $cityHumidity = $("#city-humidity")
+var $weatherIcon = $("#weather-icon")
 
 module.exports = {                                                                                  // The only place we use model is in controller
     index: (req, res) => {
@@ -14,18 +21,21 @@ module.exports = {                                                              
     show: (req, res) => {
         Image.findById(req.params.id, (err, thatImage) => {
             if(err) return console.log(err)
-            res.render("show", {image: thatImage})
-        })
-        Image.findById(req.params.id,(err, thatImage) => {
+        
             const location = thatImage.location.replace(/\s/g,"")
             const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=imperial`
             const options = {method: "get", url: apiUrl}
             httpClient(options).then((apiResponse) => {
-                console.log(apiResponse)
-                res.render("show", {image: thatImage})
-                
-                // res.json(apiResponse)
-            })
+                console.log("temp" + apiResponse.data)                    
+                // const icon = apiResponse.data.weather[0].icon
+                // const temp = apiResponse.data.main.temp
+                // const hum = apiResponse.data.main.humidity
+                // $weatherIcon.attr("src", `http://openweathermap.org/img/w/${icon}.png`)
+                // $cityTemperature.text(temp)        
+                // $cityHumidity.text(hum)
+                res.render("show", {image: thatImage, data: apiResponse.data})      
+            })            
+      
             // .catch((err) => {
             //     console.log(err)
             // }) 
@@ -33,8 +43,7 @@ module.exports = {                                                              
     },
     
     new: (req, res) => {
-        console.log("Getting here")
-            res.render("newImage")
+        res.render("newImage")
     }, 
     
     create: (req, res) => {
