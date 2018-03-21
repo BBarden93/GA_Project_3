@@ -25,8 +25,8 @@ form {
 }
 .container {
     text-align: center;
-    margin: 0 auto;
-    display: inline-block;
+    margin: 30px 170px;
+    
 }
 /* Profile CSS */
 .well {
@@ -41,8 +41,7 @@ form {
     margin: 0 auto;
 }
 img {
-    float: right;
-    clear: both;
+    max-width: 500px;
 }
 /* END Profile CSS */
 /* Navigation Bar CSS */
