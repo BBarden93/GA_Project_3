@@ -22,7 +22,7 @@ module.exports = {                                                              
     show: (req, res) => {
         Image.findById(req.params.id, (err, thatImage) => {
             if(err) return console.log(err)
-            const location = thatImage.location.replace(/\s/g,"")
+            const location = thatImage.location.replace(/\s/g,"%20")
             const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=imperial`
             const options = {method: "get", url: apiUrl}
             // const apiUrl2 =`https://www.google.com/maps/embed/v1/place?key=${apiKey2}&q=${location}`
@@ -31,7 +31,7 @@ module.exports = {                                                              
                 console.log(apiResponse.data)
                     res.render("show", {image: thatImage, data: apiResponse.data, location: location, apiKey2: apiKey2})                   
             }).catch((err) => {
-                res.send("country not found")
+                res.redirect('/', {message: req.flash(errorMessage)})
             })             
         })                    
     },
