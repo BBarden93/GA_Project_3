@@ -21,9 +21,6 @@ form {
     margin: 18px;
 }
 /* END Form CSS */
-.home-container {
-    color: gainsboro;
-}
 .container {
     text-align: center;
     margin: 30px 170px;
@@ -31,7 +28,7 @@ form {
 /* HOME CSS */
 .gallery-image-container {
     display: inline-block;
-    max-width: 1000px;
+    max-width: 80%;
 }
 /* Profile CSS */
 .well {
