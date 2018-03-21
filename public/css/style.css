@@ -3,7 +3,7 @@ body {
 }
 .page-container {
     padding-left: 100px;
-    margin: 0 auto;
+    width: 100%;
 }
 .home-container {
     color: gainsboro;
@@ -16,8 +16,12 @@ body {
     text-align: center;
     margin: 0 auto;
 }
-h1 {
+h1, h3, label, .well {
     color: gainsboro;
+}
+.well {
+    text-align: center;
+    margin: 0 auto;
 }
 .fa {
     position: relative;
@@ -121,6 +125,7 @@ nav ul,nav li {
     margin:0;
     padding:0;
 }
+
 
 
 
