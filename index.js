@@ -18,18 +18,20 @@ const imagesRouter = require('./routes/images.js')
 const Image = require('./models/Image.js')
 const httpClient = axios.create()
 const methodOverride = require('method-override')
-const PORT = 3000
 require('dotenv').config()
 const apiKey = process.env.API_KEY
 
+
+const port = process.env.PORT || 3000 
+const mongoConnectionString = process.env.MONGODB_URI || 'mongodb://localhost/vacation-finder'
 //MONGOOSE CONNECT
-mongoose.connect ("mongodb://localhost/vacation-finder", (err) => {
+mongoose.connect(mongoConnectionString, (err) => {
     console.log(err || "Connected to MongoDB")
 })
 
 //STORING SESSIONS INFO
 const store = new MongoDBStore({
-	uri: "mongodb://localhost/vacation-finder",										//NOT SURE WHAT THIS DOES YET
+	uri: mongoConnectionString,										//NOT SURE WHAT THIS DOES YET
 	collection: 'sessions'
 })
 
@@ -74,6 +76,6 @@ app.use('/users', usersRouter)
 app.use('/images', imagesRouter)
 
 
-app.listen(PORT, (err) => {
-	console.log(err || `Listening on ${PORT}`)
+app.listen(port, (err) => {
+	console.log(err || `Listening on ${port}`)
 })
