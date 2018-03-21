@@ -28,6 +28,10 @@ form {
     margin: 30px 170px;
     
 }
+/* HOME CSS */
+.gallery-image-container {
+    max-width: 800px;
+}
 /* Profile CSS */
 .well {
     text-align: center;
