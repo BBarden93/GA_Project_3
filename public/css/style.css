@@ -4,6 +4,7 @@ body {
 }
 h1, h2, h3, p, label, .well {
     color: gainsboro;
+    font-family: 'Montserrat';
 }
 /* END General Layout CSS */
 /* Form CSS */
@@ -26,17 +27,18 @@ form {
 .container {
     text-align: center;
     margin: 30px 170px;
-    
 }
 /* HOME CSS */
 .gallery-image-container {
-    max-width: 800px;
+    display: inline-block;
+    max-width: 1000px;
 }
 /* Profile CSS */
 .well {
     text-align: center;
     margin: 0 auto;
 }
+
 /* .profile-pic {
     
 } */
