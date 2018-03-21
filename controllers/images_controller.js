@@ -1,15 +1,16 @@
-const jsdom = require("jsdom")
-const { JSDOM } = jsdom
-const { window } = new JSDOM(`<!DOCTYPE html>`)
-const $ = require('jQuery')(window);
+// const jsdom = require("jsdom")
+// const { JSDOM } = jsdom
+// const { window } = new JSDOM(`<!DOCTYPE html>`)
+// const $ = require('jQuery')(window);
 const Image = require("../models/Image.js")
 const axios = require("axios")
 const httpClient = axios.create()
 require('dotenv').config()
 const apiKey = process.env.API_KEY
-var $cityTemperature = $("#city-temperature")
-var $cityHumidity = $("#city-humidity")
-var $weatherIcon = $("#weather-icon")
+const apiKey2 = process.env.GOOGLE_API
+// var $cityTemperature = $("#city-temperature")
+// var $cityHumidity = $("#city-humidity")
+// var $weatherIcon = $("#weather-icon")
 
 module.exports = {                                                                                  // The only place we use model is in controller
     index: (req, res) => {
@@ -25,20 +26,11 @@ module.exports = {                                                              
             const location = thatImage.location.replace(/\s/g,"")
             const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=imperial`
             const options = {method: "get", url: apiUrl}
-            httpClient(options).then((apiResponse) => {
-                console.log("temp" + apiResponse.data)                    
-                // const icon = apiResponse.data.weather[0].icon
-                // const temp = apiResponse.data.main.temp
-                // const hum = apiResponse.data.main.humidity
-                // $weatherIcon.attr("src", `http://openweathermap.org/img/w/${icon}.png`)
-                // $cityTemperature.text(temp)        
-                // $cityHumidity.text(hum)
-                res.render("show", {image: thatImage, data: apiResponse.data})      
-            })            
-      
-            // .catch((err) => {
-            //     console.log(err)
-            // }) 
+            // const apiUrl2 =`https://www.google.com/maps/embed/v1/place?key=${apiKey2}&q=${location}`
+            // const options2 = {method: "get", url: apiUrl2}            
+            httpClient(options).then((apiResponse) => { 
+                    res.render("show", {image: thatImage, data: apiResponse.data, location: location, apiKey2: apiKey2})                   
+            })             
         })                    
     },
     
