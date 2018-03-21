@@ -68,7 +68,7 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => {
 	Image.find({}, (err, allImages) => {
 		console.log(allImages)
-		res.render("home", {images: allImages})
+		res.render("home", {images: allImages, message: req.flash('errorMessage')})
 	})
 })
 
