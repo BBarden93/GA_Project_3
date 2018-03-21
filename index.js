@@ -73,7 +73,7 @@ app.get("/", (req, res) => {
 // app.get("/weather/:id", (req, res) => {
 // 	Image.findById(req.params.id, (err, thatImage) => {
 // 		const location = thatImage.location.replace(/\s/g,"")
-// 		const apiUrl = `api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=imperial`
+// 		const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=imperial`
 // 		console.log(apiUrl)
 // 		const options = {method: 'get', url: apiUrl}
 // 		httpClient(options).then((apiResponse) => {
