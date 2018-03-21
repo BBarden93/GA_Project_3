@@ -25,7 +25,7 @@ const apiKey = process.env.API_KEY
 const port = process.env.PORT || 3000 
 const mongoConnectionString = process.env.MONGODB_URI || 'mongodb://localhost/vacation-finder'
 //MONGOOSE CONNECT
-mongoose.connect ("mongodb://localhost/vacation-finder", (err) => {
+mongoose.connect(mongoConnectionString, (err) => {
     console.log(err || "Connected to MongoDB")
 })
 
