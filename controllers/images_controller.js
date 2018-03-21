@@ -31,7 +31,8 @@ module.exports = {                                                              
                 console.log(apiResponse.data)
                     res.render("show", {image: thatImage, data: apiResponse.data, location: location, apiKey2: apiKey2})                   
             }).catch((err) => {
-                res.redirect('/', {message: req.flash(errorMessage)})
+                req.flash('errorMessage', 'Could not find country and/or city in weather API')
+                res.redirect('/')
             })             
         })                    
     },

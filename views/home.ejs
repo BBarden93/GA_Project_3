@@ -6,6 +6,9 @@
     <div><a href='/images/<%= e.id %>'><img src="<%= e.url %>" /></a></div>
 <%})%>
 -->
+<% if(message.length > 0) { %> 
+  <div class="alert alert-danger"><%= message %></div>
+<% } %> 
 
 <div class = "gallery-image-container">
 <div class="card-deck">
