@@ -2,7 +2,7 @@
 body {
     background-color: rgba(16, 13, 13, 0.872);
 }
-h1, h3, label, .well {
+h1, h3, p, label, .well {
     color: gainsboro;
 }
 /* END General Layout CSS */
@@ -26,6 +26,7 @@ form {
 .container {
     text-align: center;
     margin: 0 auto;
+    display: inline-block;
 }
 /* Profile CSS */
 .well {
