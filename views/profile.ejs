@@ -6,12 +6,18 @@
     <h3><%=user.name %></h3>
 </div>
 <div class="row">
-        <div class="well">
-            <p>
-                <strong>email</strong>: <%= user.email %>            
-            </p>              
-        </div>
+    <div class="well">
+        <p>
+            <strong>email</strong>: <%= user.email %>            
+        </p>              
+    </div>
 </div>
 <div>
     <img class = "profile-pic" src="http://www.clker.com/cliparts/B/R/Y/m/P/e/blank-profile-hi.png" alt="profile pic" height="180" width="165" />
 </div>
+
+<form action="/images/new" method="POST">
+    <input name="url" type="text" placeholder: "Image URL">
+    <input name="location" placeholder= "City" type="text">
+    <button>Add Destination</button>
+</form>
