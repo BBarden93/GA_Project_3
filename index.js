@@ -18,13 +18,12 @@ const imagesRouter = require('./routes/images.js')
 const Image = require('./models/Image.js')
 const httpClient = axios.create()
 const methodOverride = require('method-override')
-
 require('dotenv').config()
 const apiKey = process.env.API_KEY
 
-const 
-	port = process.env.PORT || 3000, 
-	mongoConnectionString = process.env.MONGODB_URI || 'mongodb://localhost/vacation-finder'
+
+const port = process.env.PORT || 3000 
+const mongoConnectionString = process.env.MONGODB_URI || 'mongodb://localhost/vacation-finder'
 //MONGOOSE CONNECT
 mongoose.connect ("mongodb://localhost/vacation-finder", (err) => {
     console.log(err || "Connected to MongoDB")

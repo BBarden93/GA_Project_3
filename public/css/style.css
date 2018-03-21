@@ -2,7 +2,7 @@
 body {
     background-color: rgba(16, 13, 13, 0.872);
 }
-h1, h3, p, label, .well {
+h1, h2, h3, p, label, .well {
     color: gainsboro;
 }
 /* END General Layout CSS */
@@ -33,10 +33,9 @@ form {
     text-align: center;
     margin: 0 auto;
 }
-.profile-pic {
-    float: right;
-    clear: both;
-}
+/* .profile-pic {
+    
+} */
 .page-header {
     margin: 0 auto;
 }
