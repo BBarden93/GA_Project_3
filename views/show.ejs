@@ -11,9 +11,11 @@
     <p id = "city-temperature">Current Temperature: <%= data.main.temp %> F</p>
     <p id = "city-humidity">Humidity: <%= data.main.humidity %> %</p>
   </div>
-  <a href="/images/<%= image.id%>/edit">Edit</a>
+  <% if(loggedIn) { %>
+    <a href="/images/<%= image.id%>/edit">Edit</a>
   <form action="/images/<%= image.id%>/delete?_method=DELETE" method="POST">
-    <button>Delete</button>
+      <button>Delete</button>
+  <% } %>
   </form>
 
 <iframe
