@@ -18,19 +18,18 @@ module.exports = {                                                              
         })
         Image.findById(req.params.id,(err, thatImage) => {
             const location = thatImage.location.replace(/\s/g,"")
-            const apiUrl = `api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=imperial`
+            const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=imperial`
             const options = {method: "get", url: apiUrl}
             httpClient(options).then((apiResponse) => {
-                res.json(apiResponse)
-            })  
-        })      
-            // .then((thatImage) => {
-            //     const location = thatImage.location.replace(/\s/g,"")
-            //     url = `api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=imperial`
-            //     const options = {method: "get", url: apiUrl}
-            // })
-
-            // console.log(url)                
+                console.log(apiResponse)
+                res.render("show", {image: thatImage})
+                
+                // res.json(apiResponse)
+            })
+            // .catch((err) => {
+            //     console.log(err)
+            // }) 
+        })                    
     },
     
     new: (req, res) => {
