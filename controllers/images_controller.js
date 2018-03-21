@@ -22,14 +22,16 @@ module.exports = {                                                              
     show: (req, res) => {
         Image.findById(req.params.id, (err, thatImage) => {
             if(err) return console.log(err)
-        
             const location = thatImage.location.replace(/\s/g,"")
             const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=imperial`
             const options = {method: "get", url: apiUrl}
             // const apiUrl2 =`https://www.google.com/maps/embed/v1/place?key=${apiKey2}&q=${location}`
             // const options2 = {method: "get", url: apiUrl2}            
             httpClient(options).then((apiResponse) => { 
+                console.log(apiResponse.data)
                     res.render("show", {image: thatImage, data: apiResponse.data, location: location, apiKey2: apiKey2})                   
+            }).catch((err) => {
+                res.send("country not found")
             })             
         })                    
     },
@@ -40,12 +42,16 @@ module.exports = {                                                              
     
     create: (req, res) => {
         Image.create(req.body, (err, newImage) =>{
-            if(err) return console.log(err)
-            res.redirect(`/images/${newImage.id}`)
+            console.log("here ")
+            console.log(newImage)
+            // if(err) return console.log(err)
+            
+            res.redirect(`/images/${newImage._id}`)
         })
     }, 
 
     edit: (req, res) => {
+        
         Image.findById(req.params.id, (err, thatImage) =>{  
             if(err) return console.log(err)
             res.render("editImage", {image: thatImage})
@@ -53,9 +59,11 @@ module.exports = {                                                              
     }, 
 
     update: (req, res) => {
-         Image.findByIdAndUpdate(req.params.id, req.body, (err, updatedImage) => {                     // Find the image by the id and update the body(two arguments)
+        console.log("here are the params")
+        console.log(req.params)
+         Image.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedImage) => {                     // Find the image by the id and update the body(two arguments)
             if(err) return console.log(err)
-            res.render("show", {image: updatedImage}) 
+            res.redirect(`/images/${updatedImage._id}`)            
          })                                                                                        
     }, 
 
