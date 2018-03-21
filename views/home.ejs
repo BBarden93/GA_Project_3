@@ -1,12 +1,22 @@
-<% images.forEach((e) => { %>
-    <div><a href='/images/<%= e.id %>'><img src="<%= e.url %>" /></a></div>
-<%})%>
-
-<!-- /views/index.ejs -->
 <div class = "home-container">
     <h1>Vacation Finder</h1>   
 </div>
+
+<!-- <% images.forEach((e) => { %>
+    <div><a href='/images/<%= e.id %>'><img src="<%= e.url %>" /></a></div>
+<%})%>
+-->
+
 <div class = "gallery-image-container">
-    
+<div class="card-deck">
+<% images.forEach((e) => { %>
+  <div class="card">
+    <a href='/images/<%= e.id %>'><img class="card-img-top" src="<%= e.url %>" alt="Card image cap"/></a>
+    <div class="card-body">
+      <h5 class="card-title"><%= e.location %></h5>
+    </div>    
+  </div>
+  <% }) %>
+</div>   
 </div>
 
