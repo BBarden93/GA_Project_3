@@ -2,10 +2,6 @@
 body {
     background-color: rgba(16, 13, 13, 0.872);
 }
-.page-container {
-    padding-left: 100px;
-    width: 100%;
-}
 h1, h3, label, .well {
     color: gainsboro;
 }
@@ -30,7 +26,6 @@ form {
 .container {
     text-align: center;
     margin: 0 auto;
-    max-width: 700;
 }
 /* Profile CSS */
 .well {
@@ -38,6 +33,13 @@ form {
     margin: 0 auto;
 }
 .profile-pic {
+    float: right;
+    clear: both;
+}
+.page-header {
+    margin: 0 auto;
+}
+img {
     float: right;
     clear: both;
 }
