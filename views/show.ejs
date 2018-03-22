@@ -26,7 +26,9 @@
     </div>
 
     <% if(loggedIn) { %>
-      <h1><%= data.weather.main%></h1>
+      <form action="/images/<%= image.id%>/add" method="POST">
+        <button id="bl-btn"type="submit">Add to Bucket List</button>
+      </form>
       <a href="/images/<%= image.id%>/edit">Edit</a>
     <form action="/images/<%= image.id%>/delete?_method=DELETE" method="POST">
         <button class="btn btn-info btn-lg btn-block">Delete</button>
