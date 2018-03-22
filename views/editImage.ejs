@@ -1,8 +1,7 @@
 <h1>Edit Image</h1>
 
-
 <form action="/images/<%= image.id %>?_method=PATCH" method='post'>
-    <input name="url" type="text" value="<%= image.url %>" placeholder: "Image URL">
+    <input name="url" type="text" value="<%= image.url %>" placeholder="Image URL">
     <input name="location" value="<%= image.location %>"placeholder= "City" type="text">
     <button>Edit Image</button>
 </form>
