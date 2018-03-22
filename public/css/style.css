@@ -30,7 +30,7 @@ form {
     display: inline-block;
     max-width: 80%;
 } */
-.row {
+.card-deck {
     padding: 10px;
 }
 /* Profile CSS */
@@ -45,9 +45,7 @@ form {
 .page-header {
     margin: 0 auto;
 }
-img {
-    max-width: 500px;
-}
+
 /* END Profile CSS */
 /* Navigation Bar CSS */
 nav {
@@ -175,5 +173,27 @@ a:hover,a:focus {
     text-align: left;
 }
 
-.card {
+
+
+/* Set width to make card deck cards 100% width */
+@media (max-width: 950px) { 
+	
+	.card-deck-wrapper {margin-right:0;margin-left:0;}
+	.card-deck {
+	    display: block;
+	    width: 100%;
+	    margin-bottom: .75rem;
+	    table-layout: fixed;
+	    border-spacing: 1.25rem 0;
+	}
+	.card-deck .card {
+	    display: block;
+	    margin-bottom: .75rem;
+	    vertical-align: top;
+	}
+  
+  .card-deck .card:not(:first-child) {
+    margin-left: 0px;
+    }
+  
 }
