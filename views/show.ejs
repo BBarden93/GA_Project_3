@@ -5,32 +5,43 @@
   </div>
 
   <div class="card" style="width: 12rem;">
+    <%if(data.weather[0].icon === "09d" || data.weather[0].icon === "09n"){%>
+      <img class="card-img-top" class="weather-icon" src="http://moziru.com/images/moon-clipart-weather-symbol-19.png" alt="Cloudy Rainy">                   
+ 
+    <%}else if(data.weather[0].icon === "10d"){%>
+        <img class="card-img-top" class="weather-icon" src="https://lh3.googleusercontent.com/xySIYhsYAzNn_oGy0ae6pvhwK87Hstqa8FJ3UhiQEgFT7GTvfNr9lCpKl6nxdPB-TYY=w300" alt="Day Rain">                    
+    <%}else if(data.weather[0].icon === "10n"){%>
+      <img class="card-img-top" class="weather-icon" src="https://cdn4.iconfinder.com/data/icons/iconsland-weather/PNG/256x256/Night_Rain.png" alt="Night Rain">                        
     
-    <%if(data.weather.main == "Rain" && data.main.temp < 69 ){%>
-      <img class="card-img-top" class="weather-icon" src="http://files.softicons.com/download/web-icons/vector-stylish-weather-icons-by-bartosz-kaszubowski/ico/cloud.dark.rain.ico" alt="Card image cap">                   
-    <%}%>
-    <%if(data.weather.main == "Rain" && data.main.temp > 70){%>    
-      <img class="card-img-top" class="weather-icon" src="https://lh3.googleusercontent.com/xySIYhsYAzNn_oGy0ae6pvhwK87Hstqa8FJ3UhiQEgFT7GTvfNr9lCpKl6nxdPB-TYY=w300" alt="Card image cap">                    
-    <%}%>
-    <%if(data.weather.main !== "Rain" && data.main.temp > 70){%>
-      <img class="card-img-top" class="weather-icon" src="https://openclipart.org/image/800px/svg_to_png/170678/sunny.png" alt="Card image cap">                   <!--data.weather[0].icon-->
-    <%}%>
-    <%if(data.weather.main == "Snow" && data.main.temp < 30){%>
-      <img class="card-img-top" class="weather-icon" src="http://files.softicons.com/download/web-icons/vector-stylish-weather-icons-by-bartosz-kaszubowski/png/256x256/cloud.snow.png" alt="Card image cap">                   <!--data.weather[0].icon-->
-    <%}%>
+    <%}else if(data.weather[0].icon === "01n"){%>
+      <img class="card-img-top" class="weather-icon" src="https://cdn130.picsart.com/233614414043212.png" alt="Moonay">                   
+    <%}else if(data.weather[0].icon === "01d"){%>
+        <img class="card-img-top" class="weather-icon" src="https://openclipart.org/image/800px/svg_to_png/170678/sunny.png" alt="Sunnay">                  
+    
+    <%}else if(data.weather[0].icon === "03d" || data.weather[0].icon === "03n"){%>
+      <img class="card-img-top" class="weather-icon" src="http://pluspng.com/img-png/png-internet-cloud-internet-cloud-icon-png-480.png" alt="Clouday">                   
 
+    <%}else if(data.weather[0].icon === "04d" || data.weather[0].icon === "04n"){%>
+      <img class="card-img-top" class="weather-icon" src="http://www.blumenriviera.co.uk/images/weather/broken_clouds_day.png" alt="Broken Clouds">                   
+    
+    <%}else if(data.weather[0].icon === "13d" || data.weather[0].icon === "13n"){%>
+      <img class="card-img-top" class="weather-icon" src="https://bloximages.newyork1.vip.townnews.com/mooresvilletribune.com/content/tncms/assets/v3/editorial/b/08/b08c9089-291a-59e9-80f4-96e3ddbcf5e2/5a2967c629954.image.png" alt="Snoway">                 
+
+   
+      <%}%>
       <div class="card-body">
-        <p class="card-text" id="city-temperature">Current Temperature: <%= data.main.temp %> F </p>
+        <p class="card-text" id="city-temperature">Current Temperature: <%= Math.round(data.main.temp) %> F </p>
         <p class="card-text" id="city-humidity"> Humidity: <%= data.main.humidity %> %</p>
       </div>
     </div>
 
     <% if(loggedIn) { %>
+
       <form action="/images/<%= image.id%>/add" method="POST">
         <button id="bl-btn"type="submit">Add to Bucket List</button>
       </form>
       <a href="/images/<%= image.id%>/edit">Edit</a>
-    <form action="/images/<%= image.id%>/delete?_method=DELETE" method="POST">
+    <form action="/images/<%= image.id %>/delete?_method=DELETE" method="POST">
         <button class="btn btn-info btn-lg btn-block">Delete</button>
     <% } %>
     </form>

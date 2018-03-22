@@ -20,6 +20,7 @@ const httpClient = axios.create()
 const methodOverride = require('method-override')
 require('dotenv').config()
 const apiKey = process.env.API_KEY
+const _ = require('lodash')
 
 
 const port = process.env.PORT || 3000 
@@ -67,8 +68,9 @@ app.use((req, res, next) => {
 
 app.get("/", (req, res) => {
 	Image.find({}, (err, allImages) => {
+		var chunkedImages = _.chunk(allImages, 4)
 		console.log(allImages)
-		res.render("home", {images: allImages, message: req.flash('errorMessage')})
+		res.render("home", {images: chunkedImages, message: req.flash('errorMessage')})
 	})
 })
 
