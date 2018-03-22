@@ -12,13 +12,16 @@
         </p>              
     </div>
 </div>
-<div>
-    <img class = "profile-pic" src="http://www.clker.com/cliparts/B/R/Y/m/P/e/blank-profile-hi.png" alt="profile pic" height="180" width="165" />
-</div>
 
-<% user.images.forEach((id) => { %>
-    <img src="<%= id.url %>" alt="" srcset="">
-    <p><%= id.location %></p>
+<% user.images.forEach((e) => { %>
+    <div id="profile-cards">
+        <div class="card">
+                <a href='/images/<%= e.id %>'><img id="profile-image" class="card-img-top" src="<%= e.url %>" alt="Card image cap"/></a>
+                <div class="card-body">
+                <h5 class="card-title"><%= e.location %></h5>
+                </div>    
+        </div>
+    </div>
 <% }) %>
 
 <% if(loggedIn) { %>

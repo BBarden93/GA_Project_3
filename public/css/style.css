@@ -215,3 +215,7 @@ a:hover,a:focus {
 .secondrow {
     margin-top: 20px;
 }
+#profile-cards {
+    max-width: 50%;
+    margin: 0 auto;
+}
