@@ -206,7 +206,7 @@ a:hover,a:focus {
 .wrapper{
     display: block;
 }
-#iframe {
+#mapFrame {
     text-align: center;
     margin: 0 auto;
 }

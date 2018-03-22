@@ -23,7 +23,6 @@ passport.use('local-signup', new LocalStrategy({
 		if(err) return done(err)
 		if(user) return done(null, false, req.flash('signupMessage', 'Email already exists. Did you mean to login?'))
 		if(!req.body.name || !req.body.password) return done(null, false, req.flash("signUpMessage", "All fields are required"))
-
 		var newUser = new User()
         newUser.name = req.body.name
 		newUser.email = email
@@ -43,7 +42,7 @@ passport.use('local-login', new LocalStrategy({
 }, (req, email, password, done) => {
 	User.findOne({email: email}, (err, user) => {
 		if(err) return done(err)
-		if(!user) return done(null, false, req.flash('loginMessage', 'No user found...'))
+		if(!user) return done(null, false, req.flash('loginMessage', 'No user found. Maybe you meant to sign up?'))
 		if(!user.validPassword(password)) return done(null, false, req.flash('loginMessage', 'Invalid username or password.'))
 		return done(null, user)
 	})

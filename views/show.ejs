@@ -14,10 +14,15 @@
         <img class="card-img-top" class="weather-icon" src="https://cdn4.iconfinder.com/data/icons/iconsland-weather/PNG/256x256/Night_Rain.png" alt="Night Rain">                        
       
       <%}else if(data.weather[0].icon === "01n"){%>
-        <img class="card-img-top" class="weather-icon" src="https://cdn130.picsart.com/233614414043212.png" alt="Moonay">                   
+        <img class="card-img-top" class="weather-icon" src="https://cdn130.picsart.com/233614414043212.png" alt="Moonay">                  
       <%}else if(data.weather[0].icon === "01d"){%>
-          <img class="card-img-top" class="weather-icon" src="https://openclipart.org/image/800px/svg_to_png/170678/sunny.png" alt="Sunnay">                  
-      
+          <img class="card-img-top" class="weather-icon" src="https://openclipart.org/image/800px/svg_to_png/170678/sunny.png" alt="Sunnay">                        
+
+      <%}else if(data.weather[0].icon === "02d"){%>
+        <img class="card-img-top" class="weather-icon" src="http://downloadicons.net/sites/default/files/sunny-to-partly-cloudy-symbol-icon-38701.png" alt="Sun behind clouds">                  
+      <%}else if(data.weather[0].icon === "02n"){%>
+        <img class="card-img-top" class="weather-icon" src="http://pngimages.net/sites/default/files/night-cloudy-png-image-9933.png" alt="Sun behind clouds">                  
+        
       <%}else if(data.weather[0].icon === "03d" || data.weather[0].icon === "03n"){%>
         <img class="card-img-top" class="weather-icon" src="http://pluspng.com/img-png/png-internet-cloud-internet-cloud-icon-png-480.png" alt="Clouday">                   
 
@@ -25,19 +30,17 @@
         <img class="card-img-top" class="weather-icon" src="http://www.blumenriviera.co.uk/images/weather/broken_clouds_day.png" alt="Broken Clouds">                   
       
       <%}else if(data.weather[0].icon === "13d" || data.weather[0].icon === "13n"){%>
-        <img class="card-img-top" class="weather-icon" src="https://bloximages.newyork1.vip.townnews.com/mooresvilletribune.com/content/tncms/assets/v3/editorial/b/08/b08c9089-291a-59e9-80f4-96e3ddbcf5e2/5a2967c629954.image.png" alt="Snoway">                 
-
-   
+        <img class="card-img-top" class="weather-icon" src="https://bloximages.newyork1.vip.townnews.com/mooresvilletribune.com/content/tncms/assets/v3/editorial/b/08/b08c9089-291a-59e9-80f4-96e3ddbcf5e2/5a2967c629954.image.png" alt="Snoway">
       <%}%>
       <div class="card-body">
         <p class="card-text" id="city-temperature">Current Temperature: <%= Math.round(data.main.temp) %> F </p>
         <p class="card-text" id="city-humidity"> Humidity: <%= data.main.humidity %> %</p>
       </div>
     </div>
-    <div id="iframe">
+    <div id="mapFrame">
       <iframe
-        width="300"
-        height="200"
+        width="450"
+        height="300"
         frameborder="0" style="border:0"
         src="https://www.google.com/maps/embed/v1/place?key=<%= apiKey2 %>&q=<%= location %>" allowfullscreen>   
       </iframe>
@@ -46,14 +49,15 @@
 
     <% if(loggedIn) { %>
 
-      <form action="/images/<%= image.id%>/add" method="POST">
-        <button class="btn btn-info"type="submit">Add to Bucket List</button>
-      </form>
-      <span id="edit-btn"><a href="/images/<%= image.id%>/edit">Edit</a></span>
+    <form action="/images/<%= image.id%>/add" method="POST">
+      <button class="btn btn-info"type="submit">Add to Bucket List</button><span id="edit-btn"><a href="/images/<%= image.id%>/edit">Edit</a></span>
     <form action="/images/<%= image.id %>/delete?_method=DELETE" method="POST">
         <button class="btn btn-info ">Delete</button>
-    <% } %>
+      <% } %>
     </form>
+    </form>
+      
+  
 
 
 
