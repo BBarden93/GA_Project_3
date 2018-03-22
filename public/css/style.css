@@ -76,11 +76,9 @@ nav ul,nav li {
 }
 
 .main-menu {
-    /* opacity: .75;
-    background:#4dced0; */
-    opacity: 1;
-    background: #43a4a6;
-
+    opacity: .75;
+    background:#4dced0;
+    /* background: #43a4a6; */
     position:fixed;
     top:0;
     bottom:0;
