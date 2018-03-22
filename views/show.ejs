@@ -6,19 +6,17 @@
 
   <div class="card" style="width: 12rem;">
     
-    <%if(data.weather.main == "Rain" && data.main.temp < 69 ){%>
-      <img class="card-img-top" class="weather-icon" src="http://files.softicons.com/download/web-icons/vector-stylish-weather-icons-by-bartosz-kaszubowski/ico/cloud.dark.rain.ico" alt="Card image cap">                   
-    <%}%>
-    <%if(data.weather.main == "Rain" && data.main.temp > 70){%>    
-      <img class="card-img-top" class="weather-icon" src="https://lh3.googleusercontent.com/xySIYhsYAzNn_oGy0ae6pvhwK87Hstqa8FJ3UhiQEgFT7GTvfNr9lCpKl6nxdPB-TYY=w300" alt="Card image cap">                    
-    <%}%>
-    <%if(data.weather.main !== "Rain" && data.main.temp > 70){%>
-      <img class="card-img-top" class="weather-icon" src="https://openclipart.org/image/800px/svg_to_png/170678/sunny.png" alt="Card image cap">                   <!--data.weather[0].icon-->
-    <%}%>
-    <%if(data.weather.main == "Snow" && data.main.temp < 30){%>
-      <img class="card-img-top" class="weather-icon" src="http://files.softicons.com/download/web-icons/vector-stylish-weather-icons-by-bartosz-kaszubowski/png/256x256/cloud.snow.png" alt="Card image cap">                   <!--data.weather[0].icon-->
-    <%}%>
 
+    <%if(data.weather.main = "Rain" && data.main.temp < 69){%>
+      <img class="card-img-top" class="weather-icon" src="http://files.softicons.com/download/web-icons/vector-stylish-weather-icons-by-bartosz-kaszubowski/ico/cloud.dark.rain.ico" alt="Card image cap">                   
+    <%}else if(data.weather.main = "Rain" && data.main.temp > 70){%>
+        <img class="card-img-top" class="weather-icon" src="https://lh3.googleusercontent.com/xySIYhsYAzNn_oGy0ae6pvhwK87Hstqa8FJ3UhiQEgFT7GTvfNr9lCpKl6nxdPB-TYY=w300" alt="Card image cap">                    
+    <%}else if(data.weather.main != "Rain" && data.main.temp > 70){%>
+        <img class="card-img-top" class="weather-icon" src="https://openclipart.org/image/800px/svg_to_png/170678/sunny.png" alt="Card image cap">                   <!--data.weather[0].icon-->
+    <%}else if(data.weather.main = "Snow"){%>
+      <img class="card-img-top" class="weather-icon" src="http://files.softicons.com/download/web-icons/vector-stylish-weather-icons-by-bartosz-kaszubowski/png/256x256/cloud.snow.png" alt="Card image cap">                   <!--data.weather[0].icon-->
+    <%}else if(data.weather.main = "Snow" && data.main.temp < 30){%>
+    <%}%>
       <div class="card-body">
         <p class="card-text" id="city-temperature">Current Temperature: <%= data.main.temp %> F </p>
         <p class="card-text" id="city-humidity"> Humidity: <%= data.main.humidity %> %</p>
