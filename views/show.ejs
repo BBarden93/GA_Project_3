@@ -48,14 +48,19 @@
   </div>
 
     <% if(loggedIn) { %>
-
-    <form action="/images/<%= image.id%>/add" method="POST">
-      <button class="btn btn-info"type="submit">Add to Bucket List</button><span id="edit-btn"><a href="/images/<%= image.id%>/edit">Edit</a></span>
-    <form action="/images/<%= image.id %>/delete?_method=DELETE" method="POST">
-        <button class="btn btn-info ">Delete</button>
-      <% } %>
-    </form>
-    </form>
+      <form action="/images/<%= image.id%>/add" method="POST">
+        <button class="btn btn-info"type="submit">Add to Bucket List</button>
+      </form>      
+      <form action="/images/<%= image.id%>/edit" method="GET"> 
+        <button class="btn btn-info" type="submit">Edit Image</button>
+      </form>
+      <form action="/images/<%= image.id %>/delete?_method=DELETE" method="POST">
+        <button class="btn btn-info">Delete</button>
+      </form>
+    <% } %>
+     
+     
+     
       
   
 
