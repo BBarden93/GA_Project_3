@@ -9,9 +9,6 @@ require('dotenv').config()
 const apiKey = process.env.API_KEY
 const apiKey2 = process.env.GOOGLE_API
 const _ = require('lodash')
-// var $cityTemperature = $("#city-temperature")
-// var $cityHumidity = $("#city-humidity")
-// var $weatherIcon = $("#weather-icon")
 
 module.exports = {                                                                                  // The only place we use model is in controller
     index: (req, res) => {

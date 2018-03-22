@@ -35,7 +35,9 @@ function isLoggedIn(req, res, next) {
     res.redirect("/users/login")                                                                                         // New session path
 }
   
-// usersRouter.patch("/users/:id" )
+// usersRouter.patch("/users/:id", (req, res) => {
+    
+// } )
 
 //usersRouter.delete()
 
