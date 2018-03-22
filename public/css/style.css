@@ -45,7 +45,6 @@ form {
 .page-header {
     margin: 0 auto;
 }
-
 /* END Profile CSS */
 /* Navigation Bar CSS */
 nav {
@@ -190,7 +189,6 @@ a:hover,a:focus {
 	.card-deck .card {
 	    display: block;
 	    margin-bottom: .75rem;
-	    vertical-align: top;
 	}
   
   .card-deck .card:not(:first-child) {
@@ -209,7 +207,7 @@ a:hover,a:focus {
     margin: 0 auto;
 }
 #edit-btn {
-    font-size: 40px;
+    font-size: 20px;
     color: teal;
 }
 .secondrow {
