@@ -33,12 +33,16 @@ usersRouter.get("/logout", (req, res) => {
 usersRouter.get("/edit", isLoggedIn, (req, res) => {
     res.render("edit", {user: req.user})
  })
- usersRouter.post("/edit", isLoggedIn, (req, res) => {
-     res.redirect("/users/profile")
- })
+//  usersRouter.post("/edit", isLoggedIn, (req, res) => {
+//      res.redirect("/users/profile")
+//  })
 usersRouter.patch("/profile", isLoggedIn, (req, res) => {
-    res.render("profile", {user: req.user})
- })
+    if(!req.body.password) delete req.body.password
+    Object.assign(req.user, req.body)
+    req.user.save(() => {
+        res.redirect("/users/profile")
+    })
+})
 
 function isLoggedIn(req, res, next) {
     if(req.isAuthenticated()) return next()                                                                             //By implementing passport middleware we're manipulating requests 

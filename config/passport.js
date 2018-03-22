@@ -23,10 +23,7 @@ passport.use('local-signup', new LocalStrategy({
 		if(err) return done(err)
 		if(user) return done(null, false, req.flash('signupMessage', 'Email already exists. Did you mean to login?'))
 		if(!req.body.name || !req.body.password) return done(null, false, req.flash("signUpMessage", "All fields are required"))
-		var newUser = new User()
-        newUser.name = req.body.name
-		newUser.email = email
-		newUser.password = newUser.generateHash(password)
+		var newUser = new User(req.body)
 		newUser.save((err) => {
 			if(err) throw err
 			return done(null, newUser, null)
