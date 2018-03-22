@@ -200,3 +200,20 @@ a:hover,a:focus {
     }
   
 }
+#show-card {
+    margin: 0 auto;
+}
+.wrapper{
+    display: block;
+}
+#iframe {
+    text-align: center;
+    margin: 0 auto;
+}
+#edit-btn {
+    font-size: 40px;
+    color: teal;
+}
+.secondrow {
+    margin-top: 20px;
+}
