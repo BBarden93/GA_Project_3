@@ -1,28 +1,43 @@
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="<%= image.url %>" alt="First slide">
+<h2><%= image.location %></h2>
+<div class="wrapper">
+  <div class="carousel-slide" data-ride="carousel">
+    <img class="d-block w-100" src="<%= image.url %>" alt="First slide">
+  </div>
+
+  <div class="card" style="width: 12rem;">
+    
+    <%if(data.weather.main == "Rain" && data.main.temp < 69 ){%>
+      <img class="card-img-top" class="weather-icon" src="http://files.softicons.com/download/web-icons/vector-stylish-weather-icons-by-bartosz-kaszubowski/ico/cloud.dark.rain.ico" alt="Card image cap">                   
+    <%}%>
+    <%if(data.weather.main == "Rain" && data.main.temp > 70){%>    
+      <img class="card-img-top" class="weather-icon" src="https://lh3.googleusercontent.com/xySIYhsYAzNn_oGy0ae6pvhwK87Hstqa8FJ3UhiQEgFT7GTvfNr9lCpKl6nxdPB-TYY=w300" alt="Card image cap">                    
+    <%}%>
+    <%if(data.weather.main !== "Rain" && data.main.temp > 70){%>
+      <img class="card-img-top" class="weather-icon" src="https://openclipart.org/image/800px/svg_to_png/170678/sunny.png" alt="Card image cap">                   <!--data.weather[0].icon-->
+    <%}%>
+    <%if(data.weather.main == "Snow" && data.main.temp < 30){%>
+      <img class="card-img-top" class="weather-icon" src="http://files.softicons.com/download/web-icons/vector-stylish-weather-icons-by-bartosz-kaszubowski/png/256x256/cloud.snow.png" alt="Card image cap">                   <!--data.weather[0].icon-->
+    <%}%>
+
+      <div class="card-body">
+        <p class="card-text" id="city-temperature">Current Temperature: <%= data.main.temp %> F </p>
+        <p class="card-text" id="city-humidity"> Humidity: <%= data.main.humidity %> %</p>
       </div>
     </div>
-  </div>
-  <h2><%= image.location %></h2>
-  <div id = "weather-info">
-    <img id = "weather-icon"/>
-    <p id = "city-temperature">Current Temperature: <%= data.main.temp %> F</p>
-    <p id = "city-humidity">Humidity: <%= data.main.humidity %> %</p>
-  </div>
-  <% if(loggedIn) { %>
-    <a href="/images/<%= image.id%>/edit">Edit</a>
-  <form action="/images/<%= image.id%>/delete?_method=DELETE" method="POST">
-      <button>Delete</button>
-  <% } %>
-  </form>
+
+    <% if(loggedIn) { %>
+      <h1><%= data.weather.main%></h1>
+      <a href="/images/<%= image.id%>/edit">Edit</a>
+    <form action="/images/<%= image.id%>/delete?_method=DELETE" method="POST">
+        <button class="btn btn-info btn-lg btn-block">Delete</button>
+    <% } %>
+    </form>
+
+</div>
 
 <iframe
-  width="600"
-  height="450"
-  frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/place?key=<%= apiKey2 %>&q=<%= location %>" allowfullscreen>   
+width="300"
+height="200"
+frameborder="0" style="border:0"
+src="https://www.google.com/maps/embed/v1/place?key=<%= apiKey2 %>&q=<%= location %>" allowfullscreen>   
 </iframe>
-
-
