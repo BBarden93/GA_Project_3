@@ -29,7 +29,7 @@ passport.use('local-signup', new LocalStrategy({
 			return done(null, newUser, null)
 		})
 	})
-}))
+})) 
 
 // LOCAL SIGNIN
 passport.use('local-login', new LocalStrategy({

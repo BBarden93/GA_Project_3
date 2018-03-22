@@ -17,7 +17,7 @@ userSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password)
 }
 
-userSchema.pre('save', function(next) {
+userSchema.pre('save', function(next) {                                         //Before saving, run this function which checks if password is modified
     if(this.isModified('password')) {
         this.password = this.generateHash(this.password)
     }
