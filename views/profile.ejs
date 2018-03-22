@@ -21,3 +21,8 @@
     <input name="location" placeholder= "City" type="text">
     <button>Add Destination</button>
 </form>
+
+<% user.images.forEach((id) => { %>
+    <img src="<%= id.url %>" alt="" srcset="">
+    <p><%= id.location %></p>
+<% }) %>

@@ -1,6 +1,7 @@
 const express = require("express")
 const usersRouter = new express.Router()
 const passport = require("passport")
+const User = require('../models/User.js')
 
 usersRouter.get("/login", (req, res) => {
     res.render("login", {message:req.flash("loginMessage")})
@@ -21,13 +22,14 @@ usersRouter.post("/signup", (passport.authenticate("local-signup", {
 })))
 
 usersRouter.get("/profile",isLoggedIn, (req, res) => {                                                                  // If somebody makes a getmethod on /profile, run the isLoggedIn function first 
-    res.render("profile", {user: req.user, message: req.flash("signupMessage")})                                        // req.user = current user. "user" can be anyname - "client", "customer" etc
+    res.render("profile", {user: req.user, User: User, message: req.flash("signupMessage")})                                        // req.user = current user. "user" can be anyname - "client", "customer" etc
 })
 
 usersRouter.get("/logout", (req, res) => {
     req.logout()                                                                                                        // Passport has inbuilt method logout() - It invalidates the cookie
     res.redirect("/")
 })
+
 
 function isLoggedIn(req, res, next) {
     if(req.isAuthenticated()) return next()                                                                             //By implementing passport middleware we're manipulating requests 

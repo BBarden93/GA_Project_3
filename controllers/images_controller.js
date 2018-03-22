@@ -3,6 +3,7 @@
 // const { window } = new JSDOM(`<!DOCTYPE html>`)
 // const $ = require('jQuery')(window);
 const Image = require("../models/Image.js")
+const User = require("../models/User.js")
 const axios = require("axios")
 const httpClient = axios.create()
 require('dotenv').config()
@@ -29,7 +30,7 @@ module.exports = {                                                              
             // const options2 = {method: "get", url: apiUrl2}            
             httpClient(options).then((apiResponse) => { 
                 console.log(apiResponse.data)
-                    res.render("show", {image: thatImage, data: apiResponse.data, location: location, apiKey2: apiKey2})                   
+                    res.render("show", {image: thatImage, User: User, data: apiResponse.data, location: location, apiKey2: apiKey2})                   
             }).catch((err) => {
                 req.flash('errorMessage', 'Could not find country and/or city in weather API')
                 res.redirect('/')
