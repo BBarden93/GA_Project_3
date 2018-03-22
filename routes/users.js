@@ -33,6 +33,9 @@ usersRouter.get("/logout", (req, res) => {
 usersRouter.get("/edit", isLoggedIn, (req, res) => {
     res.render("edit", {user: req.user})
  })
+ usersRouter.post("/edit", isLoggedIn, (req, res) => {
+     res.redirect("/profile")
+ })
 usersRouter.patch("/profile", isLoggedIn, (req, res) => {
     res.render("profile", {user: req.user})
  })
