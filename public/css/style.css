@@ -26,9 +26,12 @@ form {
     margin: 30px 170px;
 }
 /* HOME CSS */
-.gallery-image-container {
+/* .gallery-image-container {
     display: inline-block;
     max-width: 80%;
+} */
+.row {
+    padding: 10px;
 }
 /* Profile CSS */
 .well {
