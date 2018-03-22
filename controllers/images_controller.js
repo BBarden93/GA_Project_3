@@ -19,6 +19,7 @@ module.exports = {                                                              
             res.render("/", {image: allImages})            
         })
     },
+    
     show: (req, res) => {
         Image.findById(req.params.id, (err, thatImage) => {
             if(err) return console.log(err)
@@ -52,11 +53,10 @@ module.exports = {                                                              
     }, 
 
     edit: (req, res) => {
-        
         Image.findById(req.params.id, (err, thatImage) =>{  
             if(err) return console.log(err)
             res.render("editImage", {image: thatImage})
-        })                    
+        })                
     }, 
 
     update: (req, res) => {
