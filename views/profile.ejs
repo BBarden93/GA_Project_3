@@ -20,3 +20,9 @@
     <img src="<%= id.url %>" alt="" srcset="">
     <p><%= id.location %></p>
 <% }) %>
+
+<% if(loggedIn) { %>
+    <form action="/users/edit" method="GET">
+    <button class="btn btn-info" id="bl-btn"type="submit">Edit Profile</button>
+    </form>
+<% } %>

@@ -30,7 +30,7 @@ module.exports = {                                                              
     update: (req, res) => {
          User.findByIdAndUpdate(req.params.id, req.body, (err, updatedUser) => {                     // Find the user by the id and update the body(two arguments)
             if(err) return console.log(err)
-            res.render("users/", {user: updatedUser}) 
+            res.render("users/profile", {user: updatedUser}) 
          })                                                                                        
     }, 
 

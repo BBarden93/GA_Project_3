@@ -30,6 +30,12 @@ usersRouter.get("/logout", (req, res) => {
     res.redirect("/")
 })
 
+usersRouter.get("/edit", isLoggedIn, (req, res) => {
+    res.render("edit", {user: req.user})
+ })
+usersRouter.patch("/profile", isLoggedIn, (req, res) => {
+    res.render("profile", {user: req.user})
+ })
 
 function isLoggedIn(req, res, next) {
     if(req.isAuthenticated()) return next()                                                                             //By implementing passport middleware we're manipulating requests 
@@ -37,9 +43,7 @@ function isLoggedIn(req, res, next) {
     res.redirect("/users/login")                                                                                         // New session path
 }
   
-// usersRouter.patch("/users/:id", (req, res) => {
-    
-// } )
+
 
 //usersRouter.delete()
 
