@@ -16,12 +16,6 @@
     <img class = "profile-pic" src="http://www.clker.com/cliparts/B/R/Y/m/P/e/blank-profile-hi.png" alt="profile pic" height="180" width="165" />
 </div>
 
-<form action="/images/new" method="POST">
-    <input name="url" type="text" placeholder: "Image URL">
-    <input name="location" placeholder= "City" type="text">
-    <button>Add Destination</button>
-</form>
-
 <% user.images.forEach((id) => { %>
     <img src="<%= id.url %>" alt="" srcset="">
     <p><%= id.location %></p>
