@@ -44,10 +44,7 @@ module.exports = {                                                              
     
     create: (req, res) => {
         Image.create(req.body, (err, newImage) =>{
-            console.log("here ")
             console.log(newImage)
-            // if(err) return console.log(err)
-            
             res.redirect(`/images/${newImage._id}`)
         })
     }, 
