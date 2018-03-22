@@ -1,6 +1,6 @@
 /* General Layout CSS */
 body {
-    background-color: rgba(16, 13, 13, 0.872);
+    background-color: #222629;
 }
 h1, h2, h3, p, label, .well {
     color: gainsboro;
@@ -151,3 +151,26 @@ a:hover,a:focus {
     text-decoration:none;
 }
 /* END Navigation Bar CSS */
+
+/* SHOW VIEW - IMAGE */
+
+.wrapper{
+    display: flex;
+}
+/* SHOW VIEW - CARDS */
+
+.card-img-top{
+    background-color: #222629;
+    padding: 0;
+    border: none;
+}
+
+.card-text{
+    font-size: 14px;    
+    width: 120px;
+    color: #4dced0;
+    text-align: left;
+}
+
+.card {
+}
