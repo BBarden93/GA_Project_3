@@ -2,6 +2,7 @@
 
 This is our first team project using node and express.
 
+![](https://i.imgur.com/TjDyXBG.png)
 ---
 ### Project Summary
 ---
@@ -65,6 +66,7 @@ We created wireframes using gliphy and iterated through it, which helped us desi
 ### User experience
 ---
 Users should be able to 
+
 * view images.
 * link their own location images.
 * find the location of the images.

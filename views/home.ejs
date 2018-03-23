@@ -12,10 +12,11 @@
 
 <!-- <div class = "gallery-image-container">
     <div class="card-deck"> -->
+<!-- <% var location = images.map(x => x.location)%>
+<% var sorted = location.sort() %> -->
 <% images.forEach((row) => { %>
     <div class="card-deck">
         <% row.forEach((e) => { %>
-            
                 <div class="card">
                     <a href='/images/<%= e.id %>'><img class="card-img-top" src="<%= e.url %>" alt="Card image cap"/></a>
                     <div class="card-body">
