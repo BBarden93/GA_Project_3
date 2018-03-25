@@ -172,7 +172,9 @@ a:hover,a:focus {
     color: #4dced0;
     text-align: left;
 }
-
+.show-btns {
+    text-align: center;
+}
 
 
 /* Set width to make card deck cards 100% width */
