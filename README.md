@@ -1,3 +1,5 @@
+![](https://raw.githubusercontent.com/generalassembly/ga-ruby-on-rails-for-devs/master/images/ga.png)
+
 ## PROJECT 3 - Vacation Finder
 
 This is our first team project using node and express.
